@@ -10,7 +10,8 @@ paper的数据结构（
 	Reviewers string `json:"revewers"` //审稿机构   
 	Tel       string `json:"tel"`      //联系方式   
   ）   
-（1）initPaper稿件上链（具有相同标题title的拒绝上链）    
+（1）initPaper稿件上链（具有相同标题title的拒绝上链）</br>
+     {parm:("title", "author", "reviewers", "tel"  "paperHash")}
 （2）getPaperInfo（通过标题得到文章信息）   
 （3）getPapers（传入想要查询的json（例title：xxx）对进行富查询）   
 （4）isPaperIllegal（通过paperHash检测，如果检测到相似或者相同的paperHash，就认为是一稿多投，这样把已经存在链上的文章信息返回出来；否则直接返回文章是合法的）   
