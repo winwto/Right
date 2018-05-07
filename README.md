@@ -11,8 +11,18 @@ paper的数据结构（
 	Tel       string `json:"tel"`      //联系方式   
   ）   
 （1）initPaper稿件上链（具有相同标题title的拒绝上链）</br>
-     {parm:("title", "author", "reviewers", "tel"  "paperHash")}
-（2）getPaperInfo（通过标题得到文章信息）   
-（3）getPapers（传入想要查询的json（例title：xxx）对进行富查询）   
-（4）isPaperIllegal（通过paperHash检测，如果检测到相似或者相同的paperHash，就认为是一稿多投，这样把已经存在链上的文章信息返回出来；否则直接返回文章是合法的）   
-（5）setPaperState（编辑通过文章标题title设置稿件状态 three退稿，直接从链上删除）   
+     {parm:("title", "author", "reviewers", "tel"  "paperHash")}</br>
+     {return: (1)title在数据库中存在the title has been exist! (2)成功上链the paper onchain success!}</br>
+（2）getPaperInfo（通过标题得到文章信息）   
+     {parm:("tltle")}</br>
+     {return: (1)title不存在No Paper! (2)查到信息paper的全部信息}</br>
+（3）getPapers（传入想要查询的json（例title：xxx）对进行富查询）
+     {parm:("查询K"，"查询V")}</br>
+     {return:(1)title全部信息[paper1,paper2...]，当没有查到时[]}</br>
+（4）isPaperIllegal（通过paperHash检测，如果检测到相似或者相同的paperHash，就认为是一稿多投，这样把已经存在链上的文章信息返回出来；否则直接返回文章是合法的）   
+     {parm:("paperHash")}</br>
+     {return:(1)是一稿多投Illegal+paper信息 (2)不是一稿多投the paper is legal}</br>
+（5）setPaperState（编辑通过文章标题title设置稿件状态 three退稿，直接从链上删除）
+     {parm:("title","isReview")}</br>
+     {return:(1)title不存在the paper is not exist! (2)isReview=three delete paper success! (3)setPaperState success!!! (4)argument(2) must      be one of two、three、four!}
+     
