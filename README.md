@@ -26,3 +26,10 @@ paper的数据结构（
      {parm:("title","isReview")}</br>
      {return:(1)title不存在the paper is not exist! (2)isReview=three delete paper success! (3)setPaperState success!!! (4)argument(2) must      be one of two、three、four!}
      
+     
+2.作者端功能</br>
+ (1)right作者确权（将文章内容simHash之后上链）</br>
+     {Parm：("title", "author", "reviewers(确权的时候不需要)", "tel", "paperHash(content->paperHash)")}</br>
+     {Return:(1)、确权成功（paperHash、time）(2)、确权失败（该文章已经被确权）}</br>
+ (2)submit作者投稿（将文章投给某个审稿机构）</br>
+     
